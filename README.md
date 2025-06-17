@@ -40,14 +40,12 @@ Real-time video processing via **IP Webcam** with object zone feedback:
 
 ## 📂 Folder Structure
 
+```
 .
-├── object.py # Main script with all modules
-├── README.md # Project documentation
-├── requirements.txt # Python dependencies
-
-yaml
-Copy
-Edit
+├── object.py            # Main script with all modules
+├── README.md            # Project documentation
+├── requirements.txt     # Python dependencies
+```
 
 ---
 
@@ -58,90 +56,101 @@ Edit
 ```bash
 git clone https://github.com/omkarmore003/Real-Time-Object-Detection-with-Depth-Estimation
 cd Real-Time-Object-Detection-with-Depth-Estimation
-2. Install Dependencies
-Make sure you have Python 3.8+ installed.
+```
 
-bash
-Copy
-Edit
+### 2. Install Dependencies
+
+Make sure you have **Python 3.8+** installed.
+
+```bash
 pip install -r requirements.txt
-3. Download Models
-YOLOv8: yolov8n.pt is automatically downloaded by the ultralytics package.
+```
 
-MiDaS: Automatically downloaded using torch.hub.
+### 3. Download Models
 
-No manual model download is required.
+- **YOLOv8**: `yolov8n.pt` is automatically downloaded by the `ultralytics` package.
+- **MiDaS**: Automatically downloaded using `torch.hub`.
 
-4. Configure IP Webcam (Mobile Camera)
-Install IP Webcam Android app.
+> No manual model download is required.
 
-Connect your phone and PC to the same Wi-Fi.
+### 4. Configure IP Webcam (Mobile Camera)
 
-Start the camera server on phone.
+- Install **IP Webcam** Android app.
+- Connect your **phone and PC to the same Wi-Fi**.
+- Start the camera server on your phone.
+- Replace the following line in `object.py` with your actual phone IP:
 
-Replace the following line in object.py with your IP:
-
-python
-Copy
-Edit
+```python
 ip_camera_url = "http://<your-phone-ip>:8080/video"
-▶️ Run the Application
-bash
-Copy
-Edit
+```
+
+---
+
+## ▶️ Run the Application
+
+```bash
 python object.py
-Press q to quit the video stream window.
+```
 
-📐 Distance Estimation Logic
-Real-world distance is estimated using the depth map from MiDaS:
+> Press `q` to quit the video stream window.
 
-python
-Copy
-Edit
+---
+
+## 📐 Distance Estimation Logic
+
+Real-world distance is estimated using the **depth map from MiDaS**:
+
+```python
 distance = k / depth_value
-depth_value is the normalized depth value.
+```
 
-k = 0.8 is a scaling factor (adjustable depending on camera calibration).
+- `depth_value` is the **normalized depth value**.
+- `k = 0.8` is a **scaling factor** (adjustable depending on camera calibration).
 
-Zone Classification:
-Distance	Zone
-< 1.0 m	Very Close
-< 3.0 m	Nearby
-> 3.0 m	Far Away
+### Zone Classification:
 
-🗣️ Voice Feedback Example
-"person very close, 0.80 meters"
+| Distance     | Zone        |
+|--------------|-------------|
+| `< 1.0 m`    | Very Close  |
+| `< 3.0 m`    | Nearby      |
+| `> 3.0 m`    | Far Away    |
 
-"bicycle nearby, 2.45 meters"
+---
 
-"car far away, 5.78 meters"
+## 🗣️ Voice Feedback Example
 
-Voice messages are played asynchronously using threads for non-blocking alerts.
+- `"person very close, 0.80 meters"`
+- `"bicycle nearby, 2.45 meters"`
+- `"car far away, 5.78 meters"`
 
-✅ Requirements
-Python 3.8+
+> Voice messages are played **asynchronously** using threads for non-blocking alerts.
 
-PyTorch
+---
 
-OpenCV
+## ✅ Requirements
 
-Ultralytics
+- Python 3.8+
+- PyTorch
+- OpenCV
+- Ultralytics
+- pyttsx3
+- numpy
+- pyautogui
 
-pyttsx3
+> All dependencies are listed in `requirements.txt`.
 
-numpy
+---
 
-pyautogui
+## 📄 License
 
-All dependencies are listed in requirements.txt.
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
-📄 License
-This project is licensed under the MIT License – see the LICENSE file for details.
+---
 
-🙏 Acknowledgments
-Ultralytics YOLOv8
+## 🙏 Acknowledgments
 
-Intel ISL MiDaS
+- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
+- [Intel ISL MiDaS](https://github.com/intel-isl/MiDaS)
+- [IP Webcam App (Android)](https://play.google.com/store/apps/details?id=com.pas.webcam)
 
-IP Webcam App (Android)
-
+---
