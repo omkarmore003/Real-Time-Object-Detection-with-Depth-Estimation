@@ -1,4 +1,5 @@
 👁️ Smart Vision: Real-Time Object Detection with Depth Estimation
+
 A real-time smart vision system for object detection and distance feedback, specially designed to assist visually impaired users. This system integrates YOLOv8 for object detection and MiDaS for depth estimation, providing auditory feedback on the proximity of detected objects using text-to-speech.
 
 📸 Live Demo
@@ -36,12 +37,16 @@ pyautogui	For placing window to the bottom-right of screen
 📂 Folder Structure
 .
 ├── object.py            # Main script with all modules
+
 ├── README.md            # Project documentation
+
 ├── requirements.txt     # Python dependencies
+
 🖥️ Setup Instructions
 1. Clone the Repository
 git clone https://github.com/omkarmore003/Real-Time-Object-Detection-with-Depth-Estimation
-2. Install Dependencies
+
+3. Install Dependencies
 Make sure you have Python 3.8+ installed.
 
 pip install -r requirements.txt
