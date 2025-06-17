@@ -1,109 +1,124 @@
-👁️ Smart Vision: Real-Time Object Detection with Depth Estimation 
+# 👁️ Smart Vision: Real-Time Object Detection with Depth Estimation
 
-A real-time smart vision system for object detection and distance feedback, specially designed to assist visually impaired users. This system integrates YOLOv8 for object detection and MiDaS for depth estimation, providing auditory feedback on the proximity of detected objects using text-to-speech.
+A real-time smart vision system for **object detection** and **distance feedback**, specially designed to assist visually impaired users.  
+This system integrates **YOLOv8** for object detection and **MiDaS** for depth estimation, providing **auditory feedback** on the proximity of detected objects using **text-to-speech**.
 
-📸 Live Demo
-Real-time video processing via IP Webcam with object zone feedback:
+---
 
-"Very close"
+## 📸 Live Demo
 
-"Nearby"
+Real-time video processing via **IP Webcam** with object zone feedback:
+- `"Very close"`
+- `"Nearby"`
+- `"Far away"`
 
-"Far away"
+---
 
+## 🚀 Features
 
-🚀 Features
+- 🎯 **YOLOv8 (Nano)** for real-time object detection  
+- 🧠 **MiDaS_small** for monocular depth estimation  
+- 🔊 **Text-to-Speech feedback** using `pyttsx3`  
+- 🖥️ **Automatic window placement** to bottom-right of screen  
+- 🧠 **Zone Classification**: Categorizes objects as **Very Close**, **Nearby**, or **Far Away**  
+- 📡 **Supports IP Webcam input** for mobile camera streaming  
 
-🎯 YOLOv8 (Nano) for real-time object detection
+---
 
-🧠 MiDaS_small for monocular depth estimation
+## 🧩 Modules Used
 
-🔊 Text-to-Speech feedback using pyttsx3
+| Module       | Purpose                                  |
+|--------------|------------------------------------------|
+| `YOLOv8`     | Fast and efficient object detection       |
+| `MiDaS_small`| Lightweight depth estimation model        |
+| `OpenCV`     | Real-time video capture and display       |
+| `pyttsx3`    | Offline Text-to-Speech feedback           |
+| `torch`      | Model inference and GPU acceleration      |
+| `pyautogui`  | For placing window to the bottom-right    |
 
-🖥️ Automatic window placement to bottom-right of screen
+---
 
-🧠 Zone Classification: Categorizes objects as Very Close, Nearby, or Far Away
+## 📂 Folder Structure
 
-📡 Supports IP Webcam input for mobile camera streaming
-
-🧩 Modules Used
-Module	Purpose
-YOLOv8	Fast and efficient object detection
-MiDaS_small	Lightweight depth estimation model
-OpenCV	Real-time video capture and display
-pyttsx3	Offline Text-to-Speech feedback
-torch	Model inference and GPU acceleration
-pyautogui	For placing window to the bottom-right of screen
-
-📂 Folder Structure
 .
-├── object.py            # Main script with all modules
+├── object.py # Main script with all modules
+├── README.md # Project documentation
+├── requirements.txt # Python dependencies
 
-├── README.md            # Project documentation
+yaml
+Copy
+Edit
 
-├── requirements.txt     # Python dependencies
+---
 
-🖥️ Setup Instructions
+## 🖥️ Setup Instructions
 
-1. Clone the Repository
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/omkarmore003/Real-Time-Object-Detection-with-Depth-Estimation
-
+cd Real-Time-Object-Detection-with-Depth-Estimation
 2. Install Dependencies
 Make sure you have Python 3.8+ installed.
 
+bash
+Copy
+Edit
 pip install -r requirements.txt
-
 3. Download Models
-YOLOv8: yolov8n.pt is automatically downloaded by the ultralytics package
+YOLOv8: yolov8n.pt is automatically downloaded by the ultralytics package.
 
-MiDaS: Automatically downloaded using torch.hub
+MiDaS: Automatically downloaded using torch.hub.
 
 No manual model download is required.
 
 4. Configure IP Webcam (Mobile Camera)
-Install IP Webcam Android app
+Install IP Webcam Android app.
 
-Connect your phone and PC to the same Wi-Fi
+Connect your phone and PC to the same Wi-Fi.
 
-Start the camera server on phone
+Start the camera server on phone.
 
-Replace the following line in main.py with your IP:
+Replace the following line in object.py with your IP:
 
+python
+Copy
+Edit
 ip_camera_url = "http://<your-phone-ip>:8080/video"
-
 ▶️ Run the Application
-
+bash
+Copy
+Edit
 python object.py
+Press q to quit the video stream window.
 
 📐 Distance Estimation Logic
-
 Real-world distance is estimated using the depth map from MiDaS:
 
+python
+Copy
+Edit
 distance = k / depth_value
-depth_value is the normalized depth from MiDaS
+depth_value is the normalized depth value.
 
-k = 0.8 is the focal scaling factor (adjustable)
+k = 0.8 is a scaling factor (adjustable depending on camera calibration).
 
-Zones:
-
-< 1.0 m → Very Close
-
-< 3.0 m → Nearby
-
-> 3.0 m → Far Away
+Zone Classification:
+Distance	Zone
+< 1.0 m	Very Close
+< 3.0 m	Nearby
+> 3.0 m	Far Away
 
 🗣️ Voice Feedback Example
-
 "person very close, 0.80 meters"
 
 "bicycle nearby, 2.45 meters"
 
 "car far away, 5.78 meters"
 
-Voice messages are played asynchronously using threads.
+Voice messages are played asynchronously using threads for non-blocking alerts.
 
 ✅ Requirements
-
 Python 3.8+
 
 PyTorch
@@ -118,9 +133,10 @@ numpy
 
 pyautogui
 
-📄 License
+All dependencies are listed in requirements.txt.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+📄 License
+This project is licensed under the MIT License – see the LICENSE file for details.
 
 🙏 Acknowledgments
 Ultralytics YOLOv8
@@ -128,3 +144,4 @@ Ultralytics YOLOv8
 Intel ISL MiDaS
 
 IP Webcam App (Android)
+
