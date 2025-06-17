@@ -1,0 +1,7 @@
+torch>=1.13.0         # PyTorch for model inference (MiDaS, YOLO)
+torchvision>=0.14.0   # Required by some PyTorch models
+opencv-python>=4.5.5  # For video capture, image processing
+ultralytics>=8.0.0    # YOLOv8 object detection
+pyttsx3>=2.90         # Offline Text-to-Speech feedback
+numpy>=1.23.0         # Used in image & depth processing
+pyautogui>=0.9.53     # For screen size detection and window positioning
