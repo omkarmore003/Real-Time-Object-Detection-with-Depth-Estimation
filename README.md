@@ -1,4 +1,4 @@
-👁️ Smart Vision: Real-Time Object Detection with Depth Estimation
+👁️ Smart Vision: Real-Time Object Detection with Depth Estimation 
 
 A real-time smart vision system for object detection and distance feedback, specially designed to assist visually impaired users. This system integrates YOLOv8 for object detection and MiDaS for depth estimation, providing auditory feedback on the proximity of detected objects using text-to-speech.
 
@@ -13,6 +13,7 @@ Real-time video processing via IP Webcam with object zone feedback:
 
 
 🚀 Features
+
 🎯 YOLOv8 (Nano) for real-time object detection
 
 🧠 MiDaS_small for monocular depth estimation
@@ -43,13 +44,15 @@ pyautogui	For placing window to the bottom-right of screen
 ├── requirements.txt     # Python dependencies
 
 🖥️ Setup Instructions
+
 1. Clone the Repository
 git clone https://github.com/omkarmore003/Real-Time-Object-Detection-with-Depth-Estimation
 
-3. Install Dependencies
+2. Install Dependencies
 Make sure you have Python 3.8+ installed.
 
 pip install -r requirements.txt
+
 3. Download Models
 YOLOv8: yolov8n.pt is automatically downloaded by the ultralytics package
 
@@ -67,11 +70,13 @@ Start the camera server on phone
 Replace the following line in main.py with your IP:
 
 ip_camera_url = "http://<your-phone-ip>:8080/video"
+
 ▶️ Run the Application
 
 python object.py
 
 📐 Distance Estimation Logic
+
 Real-world distance is estimated using the depth map from MiDaS:
 
 distance = k / depth_value
@@ -88,6 +93,7 @@ Zones:
 > 3.0 m → Far Away
 
 🗣️ Voice Feedback Example
+
 "person very close, 0.80 meters"
 
 "bicycle nearby, 2.45 meters"
@@ -97,6 +103,7 @@ Zones:
 Voice messages are played asynchronously using threads.
 
 ✅ Requirements
+
 Python 3.8+
 
 PyTorch
@@ -112,6 +119,7 @@ numpy
 pyautogui
 
 📄 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 🙏 Acknowledgments
